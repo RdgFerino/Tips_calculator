@@ -1,6 +1,10 @@
 package com.example.tips_calculator
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tips_calculator.databinding.ActivityMainBinding
@@ -36,43 +40,73 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.num_people,
+            android.R.layout.simple_spinner_item
+        )
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        binding.spinnerNumPessoas.adapter = adapter
 
 
+        var numOfPeopleSelected = 0
+        binding.spinnerNumPessoas.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener{
 
-       binding.btnLimpar.setOnClickListener {
-           println("Raoni1" + binding.tieTotal.text)
-           println("Raoni1" + binding.tieNumPessoas.text)
-       }
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+            ) {
+                    numOfPeopleSelected = position
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
 
         binding.btnCalcular.setOnClickListener {
-            val totalTableTemp = binding.tieTotal.text
-            val nPeopleTemp = binding.tieNumPessoas.text
+            val totalTableTemp = binding.tieTotal.text.toString()
 
-            if (totalTableTemp?.isEmpty() == true ||
-                nPeopleTemp?.isEmpty() == true){
+
+            if (totalTableTemp?.isEmpty() == true
+              ) {
 
                 Snackbar.make(binding.tieTotal, "Preencha Todos Os Campos", Snackbar.LENGTH_LONG).show()
 
             } else {
                 val totalTable: Float = binding.tieTotal.text.toString().toFloat()
-                val nPeople: Int = binding.tieNumPessoas.text.toString().toInt()
+                val nPeople: Int = numOfPeopleSelected + 1
 
                 val totalTemp = totalTable / nPeople
                 val tips = totalTemp * porcentagem / 100
-                val totalWithtips = totalTemp + tips
-                binding.tvResult.text = "Total With Tips: $totalWithtips"
+                val totalWithTips = totalTemp + tips
+
+                val intent = Intent(this, SummaryActivity::class.java)
+                intent.apply {
+                    putExtra("totalTable", totalTable)
+                    putExtra("numPeople", numOfPeopleSelected)
+                    putExtra("percentage", porcentagem)
+                    putExtra("totalAmount", totalWithTips)
+                }
+                startActivity(intent)
 
             }
 
         }
 
         binding.btnLimpar.setOnClickListener {
-            binding.tvResult.text = ""
             binding.tieTotal.setText("")
-            binding.tieNumPessoas.setText("")
             binding.rbOpOUm.isChecked = false
             binding.rbOpODois.isChecked = false
             binding.rbOpOTrS.isChecked = false
+
+
+
         }
 
     }

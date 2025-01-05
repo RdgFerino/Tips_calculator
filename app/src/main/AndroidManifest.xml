@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Tips_Calculator"
         tools:targetApi="34">
         <activity
+            android:name=".SummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
