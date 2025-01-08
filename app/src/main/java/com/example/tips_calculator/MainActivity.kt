@@ -17,25 +17,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(this.layoutInflater)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContentView(binding.root)
 
         var porcentagem: Int = 0
 
         binding.rbOpOUm.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 porcentagem = 10
             }
         }
 
         binding.rbOpODois.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 porcentagem = 15
             }
         }
 
         binding.rbOpOTrS.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 porcentagem = 20
             }
         }
@@ -52,31 +52,32 @@ class MainActivity : AppCompatActivity() {
 
         var numOfPeopleSelected = 0
         binding.spinnerNumPessoas.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener{
+            object : AdapterView.OnItemSelectedListener {
 
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
                     id: Long
-            ) {
+                ) {
                     numOfPeopleSelected = position
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-        }
 
         binding.btnCalcular.setOnClickListener {
             val totalTableTemp = binding.tieTotal.text.toString()
 
 
             if (totalTableTemp?.isEmpty() == true
-              ) {
+            ) {
 
-                Snackbar.make(binding.tieTotal, "Preencha Todos Os Campos", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.tieTotal, "Preencha Todos Os Campos", Snackbar.LENGTH_LONG)
+                    .show()
 
             } else {
                 val totalTable: Float = binding.tieTotal.text.toString().toFloat()
@@ -104,7 +105,6 @@ class MainActivity : AppCompatActivity() {
             binding.rbOpOUm.isChecked = false
             binding.rbOpODois.isChecked = false
             binding.rbOpOTrS.isChecked = false
-
 
 
         }

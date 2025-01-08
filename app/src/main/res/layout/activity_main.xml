@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cover"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -10,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Tips Calculator"
+        android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:textColor="@color/black"
         android:text="Preencha os campos abaixo para realizar o cálculo da sua conta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,12 +35,15 @@
         android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/Tv_subtitle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:hint="Digite o valor total da conta"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
