@@ -2,9 +2,6 @@ package com.example.tips_calculator
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tips_calculator.databinding.ActivityMainBinding
@@ -20,94 +17,50 @@ class MainActivity : AppCompatActivity() {
         //enableEdgeToEdge()
         setContentView(binding.root)
 
-        var porcentagem: Int = 0
-
-        binding.rbOpOUm.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                porcentagem = 10
-            }
-        }
-
-        binding.rbOpODois.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                porcentagem = 15
-            }
-        }
-
-        binding.rbOpOTrS.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                porcentagem = 20
-            }
-        }
-
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.num_people,
-            android.R.layout.simple_spinner_item
-        )
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
-        binding.spinnerNumPessoas.adapter = adapter
-
-
-        var numOfPeopleSelected = 0
-        binding.spinnerNumPessoas.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    numOfPeopleSelected = position
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-            }
 
         binding.btnCalcular.setOnClickListener {
             val totalTableTemp = binding.tieTotal.text.toString()
+            val numPeopleTemp = binding.tieNumPeople.text
+            val percentageTemp = binding.tiePercentage.text
 
-
-            if (totalTableTemp?.isEmpty() == true
+            if (totalTableTemp?.isEmpty() == true ||
+                numPeopleTemp?.isEmpty() == true ||
+                percentageTemp?.isEmpty() == true
             ) {
-
-                Snackbar.make(binding.tieTotal, "Preencha Todos Os Campos", Snackbar.LENGTH_LONG)
+                Snackbar
+                    .make(binding.tieTotal, "Preencha todos os campos", Snackbar.LENGTH_LONG)
                     .show()
-
             } else {
-                val totalTable: Float = binding.tieTotal.text.toString().toFloat()
-                val nPeople: Int = numOfPeopleSelected + 1
+                val totalTable: Float = totalTableTemp.toString().toFloat()
+                val nPeople: Int = numPeopleTemp.toString().toInt()
+                val percentage: Int = percentageTemp.toString().toInt()
 
                 val totalTemp = totalTable / nPeople
-                val tips = totalTemp * porcentagem / 100
+                val tips = totalTemp * percentage / 100
                 val totalWithTips = totalTemp + tips
 
                 val intent = Intent(this, SummaryActivity::class.java)
                 intent.apply {
                     putExtra("totalTable", totalTable)
-                    putExtra("numPeople", numOfPeopleSelected)
-                    putExtra("percentage", porcentagem)
+                    putExtra("numPeople", nPeople)
+                    putExtra("percentage", percentage)
                     putExtra("totalAmount", totalWithTips)
                 }
+                clean()
                 startActivity(intent)
 
             }
-
         }
 
         binding.btnLimpar.setOnClickListener {
-            binding.tieTotal.setText("")
-            binding.rbOpOUm.isChecked = false
-            binding.rbOpODois.isChecked = false
-            binding.rbOpOTrS.isChecked = false
-
-
+            clean()
         }
 
     }
+    private fun clean() {
+        binding.tieTotal.setText("")
+        binding.tiePercentage.setText("")
+        binding.tieNumPeople.setText("")
+    }
+
 }

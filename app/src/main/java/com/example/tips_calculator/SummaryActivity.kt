@@ -1,22 +1,33 @@
 package com.example.tips_calculator
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.tips_calculator.databinding.ActivitySummaryBinding
 
 class SummaryActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySummaryBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
-        setContentView(R.layout.activity_summary)
+        binding = ActivitySummaryBinding.inflate(this.layoutInflater)
+        setContentView(binding.root)
 
+        // Recuperando os dados do Intent com as keys corretas
         val totalTable = intent.getFloatExtra("totalTable", 0F)
-        val numPeople = intent.getIntExtra("numOfPeopleSelected", 0)
-        val percentage = intent.getIntExtra("porcentagem", 0)
-        val totalAmount = intent.getFloatExtra("totalWithtips", 0F)
+        val numPeople = intent.getIntExtra("numPeople", 0) // Key corrigida
+        val percentage = intent.getIntExtra("percentage", 0) // Key corrigida
+        val totalAmount = intent.getFloatExtra("totalAmount", 0F) // Key corrigida
 
-        println("Raoni1" + totalAmount)
+        // Atualizando os TextViews com os valores
+        binding.tvPercentage.text = "$percentage%"
+        binding.tvTotalAmount.text = String.format("%.2f", totalAmount)
+        binding.tvNumPeopleTable.text = numPeople.toString()
+        binding.tvTotalTable.text = String.format("%.2f", totalTable)
+
+        // Botão para finalizar a Activity
+        binding.btnDone.setOnClickListener {
+            finish()
+        }
     }
 }
