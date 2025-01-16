@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginTop="16dp"
-        android:text="Tips Calculator"
+        android:text="@string/Tip_calculator"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Preencha os campos abaixo para realizar o cálculo da sua conta"
+        android:text="@string/main_subtitle"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Digite o valor da conta:"
+        android:text="@string/type_the_value_of_your_bill"
         app:layout_constraintStart_toStartOf="@+id/Tv_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/Tv_subtitle" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/tieTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ex: € 100,00"
+            android:hint="@string/ex_100_00"
             android:inputType="numberDecimal"
             android:paddingStart="16dp"
             android:textColor="@color/black"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Número de pessoas:"
+        android:text="@string/num_of_people"
         app:layout_constraintStart_toStartOf="@id/til_total"
         app:layout_constraintTop_toBottomOf="@id/til_total" />
 
@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Porcentagem:"
+        android:text="Percentage:"
         app:layout_constraintStart_toStartOf="@+id/til_num_people"
         app:layout_constraintTop_toBottomOf="@+id/til_num_people" />
 
@@ -150,7 +150,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Limpar"
+        android:text="@string/Clean"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent" />
@@ -160,7 +160,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Calcular"
+        android:text="@string/calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/vertical_guideline" />
