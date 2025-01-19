@@ -11,10 +11,19 @@
     <string name="done">Done</string>
     <string name="main_subtitle">Fulfill all the fields below</string>
     <string name="type_the_value_of_your_bill">type the value of your bill:</string>
-    <string name="ex_100_00">ex: $ 100,00</string>
+    <string name="ex_100_00"> $ 100,00</string>
     <string name="calculate">Calculate</string>
     <string name="Clean">Clean</string>
     <string name="Summary">Summary</string>
+    <string name="_5">5</string>
+    <string name="_10">"10%"</string>
 
+    <style name="RoundedTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+
+    </style>
 
 </resources>

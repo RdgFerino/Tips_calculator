@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background_primary"
     android:layout_height="match_parent">
 
     <TextView
@@ -42,11 +43,8 @@
         android:id="@+id/til_total"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
         app:hintEnabled="false"
-        app:hintTextColor="@color/black"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         app:layout_constraintEnd_toEndOf="@+id/Tv_subtitle"
         app:layout_constraintStart_toStartOf="@+id/tv_hint_total_table"
         app:layout_constraintTop_toBottomOf="@+id/tv_hint_total_table">
@@ -78,11 +76,8 @@
         android:id="@+id/til_num_people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
         app:hintEnabled="false"
-        app:hintTextColor="@color/black"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         app:layout_constraintEnd_toEndOf="@+id/Tv_subtitle"
         app:layout_constraintStart_toStartOf="@+id/tv_hint_num_people"
         app:layout_constraintTop_toBottomOf="@+id/tv_hint_num_people">
@@ -91,7 +86,7 @@
             android:id="@+id/tie_num_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ex: 5"
+            android:hint="@string/_5"
             android:maxLength="3"
             android:inputType="number"
             android:textColor="@color/black"
@@ -114,11 +109,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
         app:hintEnabled="false"
-        app:hintTextColor="@color/black"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         app:layout_constraintEnd_toEndOf="@+id/Tv_subtitle"
         app:layout_constraintStart_toStartOf="@+id/tv_hint_percentage"
         app:layout_constraintTop_toBottomOf="@+id/tv_hint_percentage">
@@ -127,7 +119,7 @@
             android:id="@+id/tie_percentage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ex: 10%"
+            android:hint="@string/_10"
             android:textColor="@color/black"
             android:inputType="number"
             android:maxLength="3"

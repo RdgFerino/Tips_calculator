@@ -2,17 +2,19 @@
 <resources>
     <string name="Tip_calculator">Calculadora de gorjeta</string>
     <string name="summary_subtitle">Veja abaixo o resumo da sua conta</string>
-    <string name="total_table">Total mesa</string>
+    <string name="total_table">Total mesa:</string>
     <string name="num_of_people">Número de pessoas:</string>
     <string name="percentage">Porcentagem:</string>
     <string name="total">TOTAL</string>
     <string name="done">Pronto</string>
     <string name="main_subtitle">Preencha todos os campos abaixo</string>
     <string name="type_the_value_of_your_bill">Digite o valor da conta:</string>
-    <string name="ex_100_00">ex: R$ 100,00</string>
+    <string name="ex_100_00"> R$ 100,00</string>
     <string name="calculate">Calcular</string>
     <string name="Clean">Limpar</string>
     <string name="Summary">Resumo</string>
+    <string name="_5">5</string>
+    <string name="_10">"10%"</string>
 
 
 </resources>
