@@ -15,9 +15,9 @@ class SummaryActivity : AppCompatActivity() {
 
 
         val totalTable = intent.getFloatExtra("totalTable", 0F)
-        val numPeople = intent.getIntExtra("numPeople", 0) // Key corrigida
-        val percentage = intent.getIntExtra("percentage", 0) // Key corrigida
-        val totalAmount = intent.getFloatExtra("totalAmount", 0F) // Key corrigida
+        val numPeople = intent.getIntExtra("numPeople", 0)
+        val percentage = intent.getIntExtra("percentage", 0)
+        val totalAmount = intent.getFloatExtra("totalAmount", 0F)
 
 
         binding.tvPercentage.text = "$percentage%"
